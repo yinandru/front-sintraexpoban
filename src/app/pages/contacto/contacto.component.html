@@ -1,0 +1,105 @@
+<section class="contact-page">
+
+  <!-- HERO -->
+  <div class="contact-hero">
+    <h1>Contáctanos</h1>
+    <p>
+      Estamos para ayudarte. Comunícate con SINTRAEXPOBAN para
+      resolver dudas, recibir asesoría o conocer más sobre nuestros servicios.
+    </p>
+  </div>
+
+  <!-- CARDS DE CONTACTO -->
+  <div class="contact-cards">
+
+    <div class="contact-card">
+      <h3>📍 Dirección</h3>
+      <p>Calle 104 carrera 21, Gonzalo Mejía, Turbo - Antioquia</p>
+    </div>
+
+    <div class="contact-card">
+      <h3>📞 Teléfono</h3>
+      <p>604 820 8710</p>
+    </div>
+
+    <div class="contact-card">
+      <h3>✉ Correo</h3>
+      <p>sintraexpoban&#64;hotmail.com</p>
+    </div>
+
+    <div class="contact-card">
+      <h3>🟢 WhatsApp</h3>
+      <button (click)="abrirWhatsApp()">Escribir ahora</button>
+    </div>
+
+  </div>
+
+  <!-- FORMULARIO + IMAGEN -->
+  <div class="contact-main">
+
+    <!-- FORMULARIO -->
+    <div class="contact-form">
+
+      <h2>Envíanos un mensaje</h2>
+
+      <form [formGroup]="formulario" (ngSubmit)="enviar()">
+
+        <input
+          type="text"
+          placeholder="Nombre completo"
+          formControlName="nombre"
+        />
+
+        <small *ngIf="formulario.get('nombre')?.touched && formulario.get('nombre')?.invalid">
+          El nombre es obligatorio
+        </small>
+
+        <input
+          type="email"
+          placeholder="Correo electrónico"
+          formControlName="email"
+        />
+
+        <small *ngIf="formulario.get('email')?.touched && formulario.get('email')?.invalid">
+          Correo inválido
+        </small>
+
+        <textarea
+          placeholder="Escribe tu mensaje"
+          formControlName="mensaje"
+        ></textarea>
+
+        <small *ngIf="formulario.get('mensaje')?.touched && formulario.get('mensaje')?.invalid">
+          El mensaje es obligatorio
+        </small>
+
+        <button type="submit">
+          Enviar por WhatsApp
+        </button>
+
+      </form>
+
+    </div>
+
+    <!-- IMAGEN -->
+    <div class="contact-image">
+      <img
+        src="assets/images/local-sintraexpoban.jpg"
+        alt="SINTRAEXPOBAN"
+      />
+    </div>
+
+  </div>
+
+  <!-- MAPA -->
+  <div class="map-section">
+    <h2>Nuestra Ubicación</h2>
+
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-76.728!3d8.093!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e5d2174ae3ca1b5%3A0x45b5c2dc6d8e6201!2sTurbo%2C%20Antioquia%2C%20Colombia!5e0!3m2!1ses!2sco!4v1539943755621"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
+
+</section>

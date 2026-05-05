@@ -1,0 +1,72 @@
+/* 🔥 CONTENEDOR GENERAL */
+.mision-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px 15px;
+}
+
+/* 🔥 TARJETA */
+.mision-card {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  max-width: 1000px;
+  width: 100%;
+
+  background: #e9f092;
+  border-radius: 20px;
+  padding: 30px;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 🖼 IMAGEN */
+.mision-img img {
+  width: 350px;
+  max-width: 100%;
+}
+
+/* 📄 TEXTO */
+.mision-texto {
+  flex: 1;
+}
+
+/* 🔥 TÍTULO */
+.mision-texto h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.mision-texto h2 span {
+  color: lab(47.55% -49.65 42.98);
+}
+
+/* 🔥 PÁRRAFOS */
+.mision-texto p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* 🔥 PALABRAS DESTACADAS */
+.resaltar {
+  color: lab(47.55% -49.65 42.98);
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .mision-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .mision-img img {
+    width: 180px;
+  }
+
+  .mision-texto h2 {
+    font-size: 24px;
+  }
+}

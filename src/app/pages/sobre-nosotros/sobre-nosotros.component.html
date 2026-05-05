@@ -1,0 +1,17 @@
+<section class="sobre">
+  <h1>Sobre Nosotros</h1>
+
+  <div class="menu-interno">
+    <button (click)="seccion = 'historia'">Historia</button>
+    <button (click)="seccion = 'mision'">Misión</button>
+    <button (click)="seccion = 'vision'">Visión</button>
+    <button (click)="seccion = 'junta'">Junta Directiva</button>
+  </div>
+
+  <div class="contenido">
+    <app-historia *ngIf="seccion === 'historia'"></app-historia>
+    <app-mision *ngIf="seccion === 'mision'"></app-mision>
+    <app-vision *ngIf="seccion === 'vision'"></app-vision>
+    <app-junta-directiva *ngIf="seccion === 'junta'"></app-junta-directiva>
+  </div>
+</section>

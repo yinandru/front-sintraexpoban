@@ -1,0 +1,40 @@
+<div *ngIf="noticia" class="detalle">
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a routerLink="/">Inicio</a>
+    <span>›</span>
+    <a routerLink="/noticias">Noticias</a>
+    <span>›</span>
+    <span class="actual">{{ noticia.titulo }}</span>
+  </div>
+
+  <!-- BOTÓN VOLVER -->
+  <div class="volver-container">
+    <button class="btn-volver" routerLink="/noticias">
+      ← Volver a Noticias
+    </button>
+  </div>
+
+  <div class="fecha-premium">
+  Publicado el 📅 {{ noticia.createdAt | date:'dd/MM/yyyy' }}
+  </div>
+  <!-- <div class="fecha-premium">
+    Publicado el {{ noticia.createdAt | date:'longDate' }}
+  </div> -->
+
+  <!-- IMAGEN PRINCIPAL -->
+  <div class="imagen-principal">
+    <img [src]="noticia.imagen || 'assets/images/banano1.jpg'" alt="">
+  </div>
+
+  <!-- TÍTULO -->
+  <h1>{{ noticia.titulo }}</h1>
+
+  <!-- CONTENIDO -->
+  <div
+    class="contenido-blog"
+    [innerHTML]="sanitizar(noticia.contenido)">
+  </div>
+
+</div>

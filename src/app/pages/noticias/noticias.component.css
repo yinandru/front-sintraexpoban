@@ -1,0 +1,579 @@
+.noticias {
+  padding: 40px;
+}
+
+/* =========================
+   HERO PORTAL DE NOTICIAS
+========================= */
+
+.hero-noticias {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 10px auto;
+  padding: 10px;
+}
+
+.badge-noticias {
+  display: inline-block;
+  background: rgba(10, 92, 54, 0.08);
+  color: #0a5c36;
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  border: 1px solid rgba(10, 92, 54, 0.12);
+}
+
+.titulo {
+  font-size: 42px;
+  font-weight: 800;
+  color: #1f1f1f;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.descripcion-noticias {
+  font-size: 17px;
+  line-height: 1.2;
+  color: #555;
+  max-width: 780px;
+  margin: 0 auto 2px auto;
+}
+
+/* .total-noticias {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0a5c36;
+  background: #f5faf7;
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: 1px solid #dcefe4;
+} */
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .hero-noticias {
+    margin-bottom: 35px;
+    padding: 10px;
+  }
+
+  .titulo {
+    font-size: 30px;
+  }
+
+  .descripcion-noticias {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .badge-noticias {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+
+  .total-noticias {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+}
+
+/* ======================================
+   NOTICIAS PREMIUM HORIZONTAL
+====================================== */
+
+.contenedor {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 30px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: hwb(0 91% 9%);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: 0.3s;
+
+  min-height: 220px;
+  /* max-height: 320px; */
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(0,0,0,0.08);
+  background-color: #8dad00; /* azul institucional */
+  
+}
+
+/* IMAGEN */
+.img-box {
+  min-width: 180px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  padding: 6px;
+  background: #e8b923;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: white;
+}
+
+/* TEXTO */
+.info {
+  flex: 1;
+}
+
+.info h3 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #0056b3;
+  margin-bottom: 14px;
+  line-height: 1.3;
+
+  display: -webkit-box;
+  display: box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.info p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 18px;
+
+  display: -webkit-box;
+  display: box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* BOTONES */
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-leer {
+  background: #0a5c36;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-leer:hover {
+  background: #0d7a4a;
+}
+
+.btn-editar {
+  background: #2c5aa0;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 10px; /* espacio a la derecha */
+}
+
+.btn-eliminar {
+  background: #d62828;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .contenedor {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .acciones {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .img-box {
+    width: 140px;
+    height: 140px;
+    min-width: 140px;
+  }
+
+  .info h3 {
+    font-size: 22px;
+  }
+
+  .info p {
+    font-size: 16px;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+textarea {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* CAJA */
+/* FONDO OSCURO */
+
+.modal-content {
+  position: relative;
+  background: white;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 12px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  max-height: 95vh;
+}
+
+/* 📱 */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: auto;
+  }
+}
+
+/* IMAGEN */
+/* ===================================
+   IMAGEN PRINCIPAL DEL MODAL
+=================================== */
+
+.modal-content > img {
+  width: 100%;
+  height: auto;
+
+  max-height: none;
+
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+
+  background: #f8f8f8;
+  border-radius: 12px 12px 0 0;
+}
+
+/* BOTÓN CERRAR */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2000; /* 👈 SUPER IMPORTANTE */
+  font-size: 25px;
+  color: white;
+  background: rgba(0,0,0,0.7);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* TEXTO */
+.modal-body {
+  padding: 20px;
+}
+
+.close {
+  border: 2px solid red;
+}
+
+.close:hover {
+  background: red;
+}
+
+/* 🔥 HEADER */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #2c5aa0;
+  color: white;
+}
+
+/* 🔥 BODY SCROLL */
+.modal-body-form {
+  padding: 15px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+/* 🔥 FOOTER FIJO */
+.modal-footer {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  background: #f9f9f9;
+  text-align: right;
+}
+
+/* BOTÓN */
+.modal-footer button {
+  padding: 10px 20px;
+  background: #2c5aa0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* INPUTS */
+.modal-body-form input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* =======================================
+   EDITOR QUILL PROFESIONAL
+======================================= */
+
+quill-editor {
+  display: block;
+  margin: 15px 0;
+  min-height: 320px;
+}
+
+/* CONTENEDOR GENERAL */
+::ng-deep .ql-container {
+  min-height: 250px !important;
+  max-height: 400px;
+  overflow-y: auto;
+  font-size: 16px;
+  border-radius: 0 0 10px 10px;
+}
+
+/* BARRA SUPERIOR */
+::ng-deep .ql-toolbar {
+  border-radius: 10px 10px 0 0;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+}
+
+/* ÁREA DE ESCRITURA */
+::ng-deep .ql-editor {
+  min-height: 250px !important;
+  line-height: 1.8;
+  font-size: 16px;
+  padding: 18px;
+  white-space: normal;
+}
+
+/* PÁRRAFOS */
+::ng-deep .ql-editor p {
+  margin-bottom: 14px !important;
+}
+
+/* LISTAS */
+::ng-deep .ql-editor ul,
+::ng-deep .ql-editor ol {
+  padding-left: 25px;
+  margin-bottom: 15px;
+}
+
+/* ITEMS */
+::ng-deep .ql-editor li {
+  margin-bottom: 8px;
+}
+
+/* ===================================
+   IMÁGENES DENTRO DEL TEXTO (QUILL)
+=================================== */
+
+::ng-deep .modal-body img {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: 200px;
+  object-fit: cover;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* INPUT FILE */
+.modal-body-form input[type="file"] {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+/* INPUT TÍTULO */
+.modal-body-form input[type="text"] {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+ /* =========================
+   QUILL EDITOR PRO
+========================= */
+
+quill-editor {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+/* CONTENEDOR GENERAL */
+::ng-deep .ql-container {
+  min-height: 350px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  border-radius: 0 0 10px 10px;
+  background: #ffffff;
+}
+
+/* ÁREA DE ESCRITURA */
+::ng-deep .ql-editor {
+  min-height: 320px;
+  line-height: 1.8;
+  color: #333;
+  padding: 20px;
+}
+
+/* PÁRRAFOS */
+::ng-deep .ql-editor p {
+  margin-bottom: 18px;
+  text-align: justify;
+}
+
+/* TÍTULOS */
+::ng-deep .ql-editor h1,
+::ng-deep .ql-editor h2,
+::ng-deep .ql-editor h3 {
+  margin: 20px 0 15px;
+  color: #1f1f1f;
+  font-weight: bold;
+}
+
+/* LISTAS */
+::ng-deep .ql-editor ul,
+::ng-deep .ql-editor ol {
+  padding-left: 25px;
+  margin-bottom: 20px;
+}
+
+::ng-deep .ql-editor li {
+  margin-bottom: 8px;
+}
+
+
+
+/* TOOLBAR */
+::ng-deep .ql-toolbar {
+  border-radius: 10px 10px 0 0;
+  background: #f8f9fa;
+}
+
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.paginacion button {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: #f2f2f2;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.paginacion button:hover {
+  background: #dfeee5;
+}
+
+.paginacion button.activa {
+  background: #0a5c36;
+  color: white;
+}
+
+.paginacion button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

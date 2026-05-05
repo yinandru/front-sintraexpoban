@@ -1,0 +1,265 @@
+<section class="hero">
+
+  <div class="overlay">
+    <h1 class="titulo">Bienvenidos a Sintraexpoban</h1>
+    <p class="subtitulo">Defendiendo los derechos de los trabajadores con compromiso y union</p>
+
+    <button class="btn-afiliar" routerLink="/afiliaciones">
+      Afiliarme
+    </button>
+  </div>
+
+</section>
+
+<section class="historia-home">
+
+  <div class="contenido-historia">
+
+    <h2>Nuestra Historia</h2>
+
+    <p>
+      SINTRAEXPOBAN nace como una organización comprometida con la defensa
+      de los derechos de los trabajadores, promoviendo la unión, la justicia
+      laboral y el bienestar colectivo de sus afiliados.
+    </p>
+
+    <p>
+      Durante años hemos trabajado por fortalecer la representación sindical,
+      la negociación justa y el crecimiento social de nuestros miembros,
+      consolidándonos como una organización sólida y transparente.
+    </p>
+
+    <button routerLink="/historia">
+      Leer historia completa
+    </button>
+
+  </div>
+
+</section>
+
+<!-- Noticias -->
+<section class="noticias">
+  <div class="section-title">
+    <h2>Noticias</h2>
+    <h3>Últimas <span>Actualizaciones</span></h3>
+    <p>
+      Mantente informado sobre nuestras actividades,
+      comunicados oficiales y novedades sindicales.
+    </p>
+  </div>
+
+    <div class="cards">
+    <div class="card" *ngFor="let noticia of noticias">
+      <img [src]="noticia.imagen" alt="noticia" />
+
+      <div class="contenido">
+        <h3>{{ noticia.titulo }}</h3>
+        <p>{{ noticia.descripcion }}</p>
+        <button (click)="verNoticia(noticia)">Leer más</button><br><br>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL PRO -->
+  <div class="modal" *ngIf="noticiaSeleccionada">
+    <div class="modal-content">
+
+      <!-- IMAGEN -->
+      <img
+        class="modal-img"
+        [src]="noticiaSeleccionada.imagen"
+        []
+        alt="noticia"
+      />
+
+      <!-- FECHA -->
+      <small class="fecha">
+        📅 {{ noticiaSeleccionada.createdAt | date:'dd/MM/yyyy' }}
+      </small>
+
+      <!-- TITULO -->
+      <h2>{{ noticiaSeleccionada.titulo }}</h2>
+
+      <!-- CONTENIDO -->
+      <div
+        class="contenido-modal"
+        [innerHTML]="noticiaSeleccionada.contenido">
+      </div>
+
+      <!-- BOTÓN -->
+      <button (click)="cerrar()">
+        ✖ Cerrar
+      </button>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="galeria-home">
+
+  <div class="section-title">
+    <h2>Galería Institucional</h2>
+    <h3>Nuestra <span>Historia Visual</span></h3>
+    <p>
+      Espacios, lucha sindical y trayectoria que representan
+      el compromiso de Sintraexpoban con sus trabajadores.
+    </p>
+  </div>
+
+  <div class="mosaico">
+
+    <div class="item grande">
+      <img src="assets/images/directivos.jpeg" alt="Marcha sindical">
+    </div>
+
+    <div class="item">
+      <img src="assets/images/sintraexpoban.jpeg" alt="Marcha sindical">
+    </div>
+
+    <div class="item">
+      <img src="assets/images/racimo.png" alt="40 años Sintraexpoban">
+    </div>
+
+    <div class="item">
+      <img src="assets/images/finca-m1.jpeg" alt="Monterrey 1">
+    </div>
+
+    <div class="item">
+      <img src="assets/images/finca-m2.jpeg" alt="Monterrey 2">
+    </div>
+
+    <div class="item">
+      <img src="assets/images/finca-m3.jpeg" alt="Monterrey 3">
+    </div>
+
+    <!-- <div class="item grande-vertical">
+      <img src="assets/images/racimo.png" alt="40 años Sintraexpoban">
+    </div> -->
+
+  </div>
+
+</section>
+
+<section class="beneficios">
+
+  <div class="titulo-seccion">
+    <h2>Beneficios de Afiliación</h2>
+    <p>Ser parte de SINTRAEXPOBAN te brinda respaldo, representación y crecimiento.</p>
+  </div>
+
+  <div class="beneficios-grid">
+
+    <div class="beneficio-card">
+      <h3>⚖️ Defensa Laboral</h3>
+      <p>
+        Protección y acompañamiento en temas laborales,
+        derechos sindicales y representación legal.
+      </p>
+    </div>
+
+    <div class="beneficio-card">
+      <h3>🤝 Apoyo Colectivo</h3>
+      <p>
+        Unión entre trabajadores para fortalecer
+        la negociación y la mejora de condiciones.
+      </p>
+    </div>
+
+    <div class="beneficio-card">
+      <h3>📚 Formación</h3>
+      <p>
+        Capacitaciones, talleres y orientación
+        para el crecimiento profesional y sindical.
+      </p>
+    </div>
+
+    <div class="beneficio-card">
+      <h3>🏥 Bienestar Social</h3>
+      <p>
+        Programas de bienestar, acompañamiento social
+        y apoyo para los afiliados y sus familias.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="estadisticas">
+
+  <div class="titulo-seccion">
+    <h2>Nuestro Impacto</h2>
+    <p>Resultados que reflejan nuestro compromiso sindical</p>
+  </div>
+
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <h3>+700</h3>
+      <p>Afiliados activos</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>+40</h3>
+      <p>Años de experiencia</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>+180</h3>
+      <p>Casos resueltos</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>+36</h3>
+      <p>Convenios activos</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="testimonios">
+
+  <div class="titulo-seccion">
+    <h2>Lo que dicen nuestros afiliados</h2>
+    <p>Experiencias reales de quienes hacen parte de SINTRAEXPOBAN</p>
+  </div>
+
+  <div class="testimonios-grid">
+
+    <div class="testimonio-card">
+      <p>
+        “Gracias a SINTRAEXPOBAN encontré respaldo y apoyo en momentos
+        difíciles dentro de mi trabajo. Hoy me siento protegido.”
+      </p>
+      <h4>— Carlos M.</h4>
+    </div>
+
+    <div class="testimonio-card">
+      <p>
+        “La unión sindical nos ha permitido mejorar nuestras condiciones
+        laborales y defender nuestros derechos con dignidad.”
+      </p>
+      <h4>— María R.</h4>
+    </div>
+
+    <div class="testimonio-card">
+      <p>
+        “Más que un sindicato, aquí encontré una familia que lucha
+        por el bienestar de todos los trabajadores.”
+      </p>
+      <h4>— José A.</h4>
+    </div>
+
+  </div>
+
+</section>
+
+<a
+  href="https://wa.me/573105482715?text=Hola,%20quiero%20más%20información%20sobre%20SINTRAEXPOBAN"
+  target="_blank"
+  class="whatsapp-float"
+>
+  <i class="ri-whatsapp-line"></i>
+</a>

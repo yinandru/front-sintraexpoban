@@ -1,0 +1,72 @@
+/* 🔥 CONTENEDOR GENERAL */
+.vision-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px 15px;
+}
+
+/* 🔥 TARJETA */
+.vision-card {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  max-width: 1000px;
+  width: 100%;
+
+  background: #92f097;
+  border-radius: 20px;
+  padding: 30px;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 🖼 IMAGEN */
+.vision-img img {
+  width: 350px;
+  max-width: 100%;
+}
+
+/* 📄 TEXTO */
+.vision-texto {
+  flex: 1;
+}
+
+/* 🔥 TÍTULO */
+.vision-texto h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.vision-texto h2 span {
+  color: hsl(61, 100%, 50%);
+}
+
+/* 🔥 PÁRRAFOS */
+.vision-texto p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* 🔥 PALABRAS DESTACADAS */
+.resaltar {
+  color: hsl(61, 100%, 50%);
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .vision-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .vision-img img {
+    width: 180px;
+  }
+
+  .vision-texto h2 {
+    font-size: 24px;
+  }
+}

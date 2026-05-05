@@ -1,0 +1,67 @@
+<section class="dashboard">
+
+  <div class="dashboard">
+
+    <h1>Panel de Gestión</h1>
+    <p>Bienvenido {{ getNombre() }} 👋</p>
+
+    <div class="cards">
+
+      <!-- 📰 NOTICIAS -->
+      <div
+        class="card"
+        routerLink="/noticias"
+        *ngIf="puedeGestionarNoticias()"
+      >
+        <h2>📰 Noticias</h2>
+        <p>Total: {{ totalNoticias }}</p>
+        <p>Crear, editar y eliminar noticias</p>
+        <button routerLink="/noticias">
+          Gestionar
+        </button>
+      </div>
+
+      <!-- 👔 JUNTA DIRECTIVA -->
+      <div
+        class="card"
+        routerLink="/junta-directiva"
+        *ngIf="puedeGestionarJunta()"
+      >
+        <h2>👔 Junta Directiva</h2>
+        <p>Gestionar miembros</p>
+        <p>Crear, editar y eliminar directivos</p>
+        <button routerLink="/junta-directiva">
+          Gestionar
+        </button>
+      </div>
+
+      <!-- 👥 USUARIOS SOLO ADMIN -->
+      <div
+        class="card"
+        routerLink="/admin/usuarios"
+        *ngIf="esAdmin()"
+      >
+        <h2>👥 Usuarios</h2>
+        <p>Gestionar usuarios</p>
+        <p>Crear, editar y eliminar usuarios</p>
+        <button routerLink="/admin/usuarios">
+          Crear Usuario
+        </button>
+      </div>
+
+      <!-- ⚙️ CONFIG SOLO ADMIN -->
+      <div
+        class="card"
+        *ngIf="esAdmin()"
+      >
+        <h2>⚙️ Configuración</h2>
+        <p>Próximamente</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+

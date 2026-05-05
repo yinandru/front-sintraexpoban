@@ -1,0 +1,40 @@
+<section class="usuarios">
+  <div class="usuarios">
+
+    <h2>👥 Crear Usuario</h2>
+
+    <input type="text" [(ngModel)]="name" placeholder="Nombre">
+    <input type="email" [(ngModel)]="email" placeholder="Correo">
+    <input type="password" [(ngModel)]="password" placeholder="Contraseña">
+
+    <select [(ngModel)]="role">
+      <option value="user">Usuario</option>
+      <option value="admin">Administrador</option>
+    </select>
+
+    <button (click)="crearUsuario()">Crear Usuario</button>
+
+  </div> <br><br> 
+
+  <h3>Usuarios registrados</h3><br>
+
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Rol</th>
+      <th>Acciones</th>
+    </tr>
+
+    <tr *ngFor="let u of usuarios">
+      <td>{{ u.name }}</td>
+      <td>{{ u.email }}</td>
+      <td>{{ u.role }}</td>
+      <td>
+        <!-- <button (click)="editar(u)">Editar</button> -->
+        <button (click)="eliminar(u.id)">Eliminar</button>
+      </td>
+    </tr>
+  </table>
+
+</section>

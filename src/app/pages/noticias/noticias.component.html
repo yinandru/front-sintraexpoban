@@ -1,0 +1,161 @@
+<section class="noticias">
+
+   <!-- HERO PORTAL NOTICIAS -->
+  <div class="hero-noticias">
+
+    <span class="badge-noticias">
+      📰 Información • Actualidad • Transparencia
+    </span>
+
+    <h1 class="titulo">
+      Portal de Noticias
+    </h1>
+
+    <p class="descripcion-noticias">
+      Mantente informado sobre las últimas novedades, comunicados oficiales,
+      actividades sindicales, decisiones importantes y acontecimientos
+      relevantes
+  </div>  
+
+  <!-- <p>Total noticias: {{ noticias.length }}</p> -->
+
+    <!-- 🔥 FORMULARIO -->
+  <div class="modal" *ngIf="mostrarFormulario">
+    <div class="modal-content">
+
+      <!-- 🔥 HEADER -->
+      <div class="modal-header">
+        <h2>{{ editando ? 'Editar Noticia' : 'Crear Noticia' }}</h2>
+        <span class="close" (click)="resetForm()">×</span>
+      </div>
+
+      <!-- 🔥 BODY (SCROLL) -->
+      <div class="modal-body-form">
+        <input type="file" (change)="seleccionarImagen($event)">
+        
+        <input type="text" [(ngModel)]="titulo" placeholder="Título">
+
+        <quill-editor 
+          [(ngModel)]="contenido"
+          name="contenido">
+        </quill-editor>
+
+        <!-- <quill-editor 
+          [(ngModel)]="contenido"
+          [modules]="modules"
+          name="contenido">
+        </quill-editor> -->
+
+      </div>
+
+      <!-- 🔥 FOOTER FIJO -->
+      
+      <div class="modal-footer">
+        <button (click)="guardarNoticia()">Guardar</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 🔥 BOTÓN -->
+  <button *ngIf="puedeGestionar()" (click)="mostrarFormulario = true">
+    Crear nueva noticia
+  </button><br>
+
+  <!-- 🔥 MODAL -->
+  <div class="modal" *ngIf="noticiaSeleccionada">
+    <div class="modal-content">
+
+      <span class="close" (click)="cerrarModal()">×</span>
+
+      <img [src]="noticiaSeleccionada.imagen || 'assets/images/banano1.jpg'" alt="">
+
+      <div class="modal-body">
+        <h2>{{ noticiaSeleccionada.titulo }}</h2>
+        <div [innerHTML]="sanitizar(noticiaSeleccionada.contenido)"></div>
+      </div>
+
+    </div>
+  </div><br>
+
+  <!-- LISTA DE NOTICIAS PREMIUM -->
+  <div class="contenedor">
+
+    <div class="card" *ngFor="let n of noticiasPaginadas">
+
+      <!-- IMAGEN CIRCULAR -->
+      <div class="img-box">
+        <img
+          [src]="n.imagen || 'assets/images/banano1.jpg'"
+          alt="noticia"
+        />
+      </div>
+
+      <!-- CONTENIDO -->
+      <div class="info">
+
+        <h3>{{ n.titulo }}</h3>
+
+        <p>
+          {{ resumen(n.contenido) }}
+        </p>
+
+        <div class="acciones">
+
+          <a
+            class="btn-leer"
+            [routerLink]="['/noticias', n.id]">
+            Leer más
+          </a>
+
+          <div *ngIf="puedeGestionar()">
+
+            <button
+              class="btn-editar"
+              (click)="editar(n)">
+              Editar
+            </button>
+
+            <button
+              class="btn-eliminar"
+              (click)="eliminar(n.id)">
+              Eliminar
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+ <!-- paginacion  -->
+  <div class="paginacion" *ngIf="totalPaginas > 1">
+
+    <button
+      (click)="cambiarPagina(paginaActual - 1)"
+      [disabled]="paginaActual === 1">
+      ← Anterior
+    </button>
+
+    <button
+      *ngFor="let pagina of [].constructor(totalPaginas); let i = index"
+      (click)="cambiarPagina(i + 1)"
+      [class.activa]="paginaActual === i + 1">
+
+      {{ i + 1 }}
+
+    </button>
+
+    <button
+      (click)="cambiarPagina(paginaActual + 1)"
+      [disabled]="paginaActual === totalPaginas">
+      Siguiente →
+    </button>
+
+  </div>
+  
+</section>

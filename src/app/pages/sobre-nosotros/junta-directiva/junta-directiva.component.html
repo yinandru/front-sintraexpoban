@@ -1,0 +1,56 @@
+<section class="team">
+
+  <div class="section-title">
+    <h2>Junta directiva</h2>
+    <h3>Directivos <span>Sintraexpoban</span></h3>
+  </div> <br>
+
+  <!-- <button *ngIf="esAdmin()" (click)="abrirModal()" class="btn-crear">
+  + Agregar Directivo
+  </button> -->
+  <button *ngIf="puedeGestionarJunta()" (click)="abrirModal()" class="btn-crear">
+    + Agrgar Directivo
+  </button>
+
+  <div class="contenedor">
+
+    <div class="card" *ngFor="let d of directivos">
+
+      <div class="img-container">
+        <img [src]="d.imagen" alt="{{ d.nombre }}">
+      </div>
+
+      <div class="info">
+        <h4>{{ d.nombre }}</h4>
+        <p>{{ d.cargo }}</p>
+
+        <!-- 🔐 SOLO ADMIN -->
+        <div *ngIf="puedeGestionarJunta()" class="acciones">
+          <button (click)="editar(d)">✏️</button>
+          <button (click)="confirmarEliminar(d.id)">🗑️</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="modal" *ngIf="mostrarModal">
+    <div class="modal-content">
+
+      <h3>{{ editando ? 'Editar' : 'Crear' }} Directivo</h3>
+
+      <input [(ngModel)]="form.nombre" placeholder="Nombre" />
+      <input [(ngModel)]="form.cargo" placeholder="Cargo" />
+
+      <input type="file" (change)="seleccionarImagen($event)" />
+
+      <div class="acciones">
+        <button (click)="guardar()">💾 Guardar</button>
+        <button (click)="cerrarModal()">❌ Cancelar</button>
+      </div>
+
+    </div>
+  </div>
+
+</section>

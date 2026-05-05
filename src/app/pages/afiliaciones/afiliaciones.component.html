@@ -1,0 +1,194 @@
+<div class="afiliaciones-container">
+
+  <!-- LADO IZQUIERDO (INFO) -->
+  <div class="info">
+
+    <h2>Afiliación SINTRAEXPOBAN</h2>
+
+      <div class="faq">
+        
+        <div class="item" (click)="toggle(0)">
+          <h3>
+            <span 
+              class="flecha"
+              [class.activo]="activeIndex === 0"
+            >
+              ▶
+            </span>
+            ¿Qué debo hacer para afiliarme?
+          </h3>
+
+          <p *ngIf="activeIndex === 0">
+            Debes diligenciar el formulario de afiliación con tus datos personales
+            y aceptar los estatutos del sindicato.
+          </p>
+        </div>
+        
+      </div>
+
+      <div class="item" (click)="toggle(1)">
+        <h3>
+            <span 
+              class="flecha"
+              [class.activo]="activeIndex === 1"
+            >
+              ▶
+            </span>
+            ¿Cuales son los beneficios?
+        </h3>
+
+        <p *ngIf="activeIndex === 1">
+          Representación laboral, asesoría jurídica, beneficios sociales,
+          capacitaciones y apoyo en situaciones laborales.
+        </p>
+      </div>
+
+      <div class="item" (click)="toggle(2)">
+        <h3>
+            <span 
+              class="flecha"
+              [class.activo]="activeIndex === 2"
+            >
+              ▶
+            </span>
+            ¿Cuales son las obligaciones?
+        </h3>
+
+        <p *ngIf="activeIndex === 2">
+          Cumplir con los estatutos, asistir a reuniones y aportar
+          las cuotas sindicales establecidas.
+        </p>
+      </div>
+
+    <!-- TESTIMONIOS -->
+
+<section class="testimonios">
+
+  <h2>👥 Lo que dicen nuestros afiliados</h2>
+
+  <div class="testimonios-grid">
+
+    <div class="testimonio-card">
+      <p>
+        “Gracias a SINTRAEXPOBAN encontré respaldo y apoyo en un momento
+        difícil de mi vida laboral. Hoy me siento protegido.”
+      </p>
+      <h4>— Afiliado del sector bananero</h4>
+    </div>
+
+    <div class="testimonio-card">
+      <p>
+        “El sindicato ha sido una herramienta fundamental para defender
+        nuestros derechos y mejorar nuestras condiciones.”
+      </p>
+      <h4>— Trabajador afiliado</h4>
+    </div>
+
+    <div class="testimonio-card">
+      <p>
+        “Aquí encontré asesoría, acompañamiento y una verdadera familia
+        sindical comprometida con los trabajadores.”
+      </p>
+      <h4>— Miembro SINTRAEXPOBAN</h4>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CTA FINAL -->
+
+<section class="cta-final">
+
+  <h2>🚀 Únete hoy a SINTRAEXPOBAN</h2>
+
+  <p>
+    Defender tus derechos laborales comienza con una decisión.
+    Afíliate hoy y haz parte de una organización que lucha por ti.
+  </p>
+
+  <button (click)="scrollFormulario()">
+    Solicitar Afiliación
+  </button>
+
+</section>
+
+  </div>
+
+  <!-- LADO DERECHO (FORMULARIO) -->
+  <div class="formulario">
+
+    <h2>Formulario de Afiliación</h2>
+
+      
+
+    <!-- TU FORMULARIO EXISTENTE -->
+    <form [formGroup]="formulario" (ngSubmit)="enviar()">
+      
+      <input type="text" placeholder="Nombre completo" formControlName="nombre" />
+      <small *ngIf="formulario.get('nombre')?.touched && formulario.get('nombre')?.invalid">
+      El nombre es obligatorio
+      </small> 
+
+      <input type="email" placeholder="Correo electrónico" formControlName="email" />
+      <small *ngIf="formulario.get('email')?.touched && formulario.get('email')?.invalid">
+        Email inválido
+      </small>
+
+      <input type="telefono" placeholder="telefono" formControlName="telefono" />
+      <small *ngIf="formulario.get('telefono')?.touched && formulario.get('telefono')?.invalid">
+        El telefono es obligatorio
+      </small>
+
+      <textarea placeholder="Mensaje" formControlName="mensaje"></textarea>
+      <small *ngIf="formulario.get('mensaje')?.touched && formulario.get('mensaje')?.invalid">
+        El mensaje es obligatorio
+      </small>
+
+      <!-- <input type="text" placeholder="Mensaje"> -->
+      <button type="submit">Enviar por WhatsApp</button>
+    </form>
+
+    <!-- BENEFICIOS -->
+    <section class="extra-info">
+
+      <div class="bloque">
+        <h2>⭐ Beneficios de Afiliarse</h2>
+
+        <ul>
+          <li>✔ Asesoría jurídica laboral</li>
+          <li>✔ Defensa de derechos laborales</li>
+          <li>✔ Representación sindical ante la empresa</li>
+          <li>✔ Capacitaciones y formación continua</li>
+          <li>✔ Beneficios sociales para afiliados</li>
+          <li>✔ Acompañamiento en situaciones laborales</li>
+        </ul>
+      </div>
+
+      <div class="bloque">
+        <h2>📄 Requisitos para Afiliación</h2>
+
+        <ul>
+          <li>✔ Ser trabajador </li>
+          <li>✔ Documento de identidad vigente</li>
+          <li>✔ Datos personales actualizados</li>
+          <li>✔ Aceptar estatutos del sindicato</li>
+          <li>✔ Compromiso con la organización sindical</li>
+        </ul>
+      </div>
+
+      <div class="bloque pasos">
+        <h2>🛠 ¿Cómo Afiliarse?</h2>
+
+        <div class="paso">1️⃣ Diligencia el formulario</div>
+        <div class="paso">2️⃣ Nuestro equipo te contacta</div>
+        <div class="paso">3️⃣ Validamos tu información</div>
+        <div class="paso">4️⃣ Bienvenido a SINTRAEXPOBAN 🎉</div>
+      </div>
+
+    </section>
+
+  </div>
+
+</div>

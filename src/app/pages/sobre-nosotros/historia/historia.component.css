@@ -1,0 +1,70 @@
+/* 🔥 CONTENEDOR PRINCIPAL */
+.info {
+  position: relative;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px;
+  text-align: center;
+
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  overflow: hidden;
+}
+
+/* 🔥 FONDO LOGO (marca de agua) */
+.info::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: url('/assets/images/logo.jpg') center no-repeat;
+  background-size: 520px;
+
+  opacity: 0.07; /* 👈 ajusta aquí si quieres más o menos visible */
+  pointer-events: none;
+}
+
+/* 🔥 ASEGURA QUE EL TEXTO ESTÉ ENCIMA */
+.info h2,
+.info p,
+.info .icono {
+  position: relative;
+  z-index: 1;
+}
+
+/* 🔥 TÍTULO */
+.info h2 {
+  color: #0a5c36;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+/* 🔥 TEXTO */
+.info p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+  font-size: 16px;
+  color: #333;
+}
+
+/* 🔥 ICONO */
+.icono {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* 🔥 LISTA */
+ul {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0;
+  list-style: none;
+}
+
+ul li {
+  margin: 10px 0;
+  font-size: 16px;
+  text-align: center;
+}

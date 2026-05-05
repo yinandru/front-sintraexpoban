@@ -1,0 +1,25 @@
+.sobre {
+  padding: 40px;
+  text-align: center;
+}
+
+.menu-interno {
+  margin: 20px 0;
+}
+
+.menu-interno button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  background: #0a5c36;
+  color: white;
+  cursor: pointer;
+}
+
+.menu-interno button:hover {
+  background: #1e8449;
+}
+
+.contenido {
+  margin-top: 20px;
+}

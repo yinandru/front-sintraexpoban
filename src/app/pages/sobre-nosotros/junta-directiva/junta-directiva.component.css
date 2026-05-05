@@ -1,0 +1,128 @@
+.team {
+  padding: 40px;
+  text-align: center;
+}
+
+.section-title h2 {
+  color: #0a5c36;
+}
+
+.contenedor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.img-container {
+  height: 200px;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  padding: 15px;
+}
+
+.info h4 {
+  margin: 5px 0;
+}
+
+.info p {
+  color: #0a5c36;
+  font-weight: bold;
+}
+
+/* 🔥 BOTONES ADMIN */
+.acciones {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.acciones button {
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #eee;
+}
+
+.acciones button:hover {
+  background: #ddd;
+}
+
+.btn-crear {
+  background: #0a5c36;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.acciones button {
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.modal-content input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+/* @media (max-width: 992px) {
+  .contenedor {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .contenedor {
+    grid-template-columns: 1fr;
+  }
+}
+ */
+
+
+
