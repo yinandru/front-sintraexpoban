@@ -1,7 +1,7 @@
 /* HERO CON IMAGEN */
 .hero {
   height: 90vh; /* altura de pantalla */
-  background-image: url('/images/junta-directiva.jpeg');
+  background-image: url('../../../assets/images/junta-directiva.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
