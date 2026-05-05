@@ -18,13 +18,13 @@ jobs:
         run: yarn install
 
       - name: Build app
-        run: yarn run build -- --base-href /sintraexpoban-web/
+        run: yarn run build -- --base-href /front-sintraexpoban/
       
       - name: Artifact upload
         uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
-          path: dist/sintraexpoban-web/browser
+          path: dist/front-sintraexpoban/browser
 
   deploy:
     needs: build
