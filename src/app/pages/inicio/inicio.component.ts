@@ -8,7 +8,7 @@ import { NoticiasService } from '../../services/noticias.service';
   standalone: true,
   imports: [CommonModule, RouterModule, DatePipe ],
   templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.css']
+  styleUrls: ['./inicio.component.css', './inicio-second.component.css']
 })
 export class InicioComponent implements OnInit {
 cerrarModal() {

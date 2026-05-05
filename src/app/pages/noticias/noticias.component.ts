@@ -14,7 +14,7 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [CommonModule, RouterModule, FormsModule, QuillModule],
   templateUrl: './noticias.component.html',
-  styleUrls: ['./noticias.component.css']
+  styleUrls: ['./noticias.component.css', './noticias-second.component.css']
 })
 
 export class NoticiasComponent implements OnInit {

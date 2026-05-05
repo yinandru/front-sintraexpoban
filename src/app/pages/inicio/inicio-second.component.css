@@ -1,0 +1,320 @@
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .noticias {
+    padding: 60px 20px;
+  }
+
+  .noticias h2 {
+    font-size: 30px;
+  }
+
+  .modal-img {
+    height: 220px;
+  }
+
+  .modal-content h2 {
+    font-size: 24px;
+  }
+
+  .contenido-modal {
+    font-size: 15px;
+  }
+
+  .modal-content button {
+    width: calc(100% - 70px);
+  }
+}
+
+
+
+/* =========================
+   GALERÍA HOME PREMIUM
+========================= */
+
+.galeria-home {
+  padding: 80px 8%;
+  background: #f8faf8;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  color: #0a5c36;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-title h3 {
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.section-title span {
+  color: #0a5c36;
+}
+
+.section-title p {
+  max-width: 700px;
+  margin: auto;
+  color: #555;
+  line-height: 1.7;
+}
+
+.mosaico {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 250px;
+  gap: 20px;
+}
+
+.item {
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.item img:hover {
+  transform: scale(1.05);
+}
+
+.grande {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.grande-vertical {
+  grid-row: span 2;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .mosaico {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 250px;
+  }
+
+  .grande,
+  .grande-vertical {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .section-title h3 {
+    font-size: 28px;
+  }
+}
+
+
+/* =========================
+   BENEFICIOS
+========================= */
+
+.beneficios {
+  padding: 80px 40px;
+  background: #ffffff;
+}
+
+.titulo-seccion {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.titulo-seccion h2 {
+  font-size: 38px;
+  color: #0a5c36;
+  margin-bottom: 15px;
+}
+
+.titulo-seccion p {
+  color: #555;
+  font-size: 17px;
+}
+
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.beneficio-card {
+  background: #f8fbf9;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  transition: 0.3s;
+  text-align: center;
+}
+
+.beneficio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+}
+
+.beneficio-card h3 {
+  color: #0a5c36;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.beneficio-card p {
+  color: #444;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* =========================
+   ESTADÍSTICAS
+========================= */
+
+.estadisticas {
+  padding: 80px 40px;
+  background: #0a5c36;
+  color: white;
+}
+
+.estadisticas .titulo-seccion {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.estadisticas .titulo-seccion h2 {
+  font-size: 38px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.estadisticas .titulo-seccion p {
+  font-size: 17px;
+  color: #dfeee5;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 35px 20px;
+  border-radius: 18px;
+  text-align: center;
+  transition: 0.3s;
+  backdrop-filter: blur(5px);
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255,255,255,0.12);
+}
+
+.stat-card h3 {
+  font-size: 42px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.stat-card p {
+  font-size: 16px;
+  color: #e8f5ed;
+}
+
+/* =========================
+   TESTIMONIOS
+========================= */
+
+.testimonios {
+  padding: 80px 40px;
+  background: #f8fbf9;
+}
+
+.testimonios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.testimonio-card {
+  background: white;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  transition: 0.3s;
+  text-align: left;
+  position: relative;
+}
+
+.testimonio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+}
+
+.testimonio-card p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.testimonio-card h4 {
+  color: #0a5c36;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   WHATSAPP FLOTANTE PRO
+========================= */
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 68px;
+  height: 68px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float i {
+  font-size: 38px;
+  color: white;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.30);
+}
