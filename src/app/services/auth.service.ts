@@ -5,6 +5,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
+  esSuperAdmin // 🔥 OBTENER TOKEN
+    (): boolean {
+    throw new Error('Method not implemented.');
+  }
 
   private API = 'http://localhost:3000/auth';
 
@@ -44,7 +48,7 @@ export class AuthService {
 
       console.log('PAYLOAD 👉', payload); // 👈 AGREGA ESTO
 
-      return payload.role === 'admin';
+      return payload.role === 'admin' || payload.role === 'superadmin';
     } catch {
       return false;
     }
@@ -84,7 +88,7 @@ export class AuthService {
     try {
       const payload = JSON.parse(atob(token.split('.')[1]));
       console.log('PAYLOAD REAL 👉', payload); // 🔥 IMPORTANTE
-      return payload.role === 'admin' || payload.role === 'user';
+      return payload.role === 'admin' || payload.role === 'user' || payload.role === 'superadmin';
     } catch {
       return false;
     }
@@ -97,7 +101,7 @@ export class AuthService {
   
     try {
       const payload = JSON.parse(atob(token.split('.')[1]));
-      return payload.role === 'admin' || payload.role === 'user';
+      return payload.role === 'admin' || payload.role === 'user' || payload.role === 'superadmin';
     } catch {
       return false;
     }

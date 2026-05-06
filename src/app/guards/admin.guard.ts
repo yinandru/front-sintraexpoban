@@ -11,7 +11,7 @@ export const adminGuard: CanActivateFn = () => {
   try {
     const payload = JSON.parse(atob(token.split('.')[1]));
 
-    return payload.role === 'admin';
+    return payload.role === 'admin' || payload.role === 'superadmin';
 
   } catch {
     return false;

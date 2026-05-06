@@ -16,6 +16,7 @@ export class UsuariosComponent {
   password = '';
   role = 'user';
   idEditando: any;
+usuario: any;
 
   constructor(private authService: AuthService) {}
 

@@ -13,15 +13,12 @@ import { NoticiasService } from '../../services/noticias.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
+esSuperAdmin(): boolean {
+  return this.authService.esSuperAdmin();
+}
 esAdmin(): boolean {
-  return this.authService.esAdmin();
+  return this.authService.esAdmin() 
 }
-/* puedeGestionarJunta(): any {
-throw new Error('Method not implemented.');
-}
-puedeGestionarNoticias(): any {
-throw new Error('Method not implemented.');
-} */
 
 puedeGestionarNoticias(): boolean {
   return this.authService.puedeGestionarNoticias();

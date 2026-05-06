@@ -13,7 +13,8 @@ export const gestionGuard: CanActivateFn = () => {
 
     return (
       payload.role === 'admin' ||
-      payload.role === 'user'
+      payload.role === 'user'  ||
+      payload.role === 'superadmin'
     );
 
   } catch {
