@@ -37,14 +37,16 @@
 
         <quill-editor 
           [(ngModel)]="contenido"
+          [formats]="['bold', 'italic', 'underline', 'list', 'bullet', 'link']"
+          [modules]="{
+            toolbar: [
+              ['bold', 'italic', 'underline'],
+              [{ list: 'ordered' }, { list: 'bullet' }],
+              ['link']
+            ]
+          }"
           name="contenido">
         </quill-editor>
-
-        <!-- <quill-editor 
-          [(ngModel)]="contenido"
-          [modules]="modules"
-          name="contenido">
-        </quill-editor> -->
 
       </div>
 

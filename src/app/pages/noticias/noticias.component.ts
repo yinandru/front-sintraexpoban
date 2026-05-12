@@ -122,10 +122,14 @@ export class NoticiasComponent implements OnInit {
   guardarNoticia() {
   console.log('ENTRÓ AL MÉTODO');
 
-  if (!this.titulo || !this.contenido) {
+  const contenidoLimpio = this.contenido
+    ?.replace(/<(.|\n)*?>/g, '')
+    ?.trim();
+
+  if (!this.titulo.trim() || !contenidoLimpio) {
     alert('Todos los campos son obligatorios');
     return;
-  }
+}
 
   if (this.editando && this.idEditando !== null) {
 
@@ -195,13 +199,21 @@ export class NoticiasComponent implements OnInit {
   }
 
   editar(noticia: any) {
-  this.titulo = noticia.titulo;
-  this.contenido = noticia.contenido;
-  this.idEditando = noticia.id;
-  this.editando = true;
-  this.mostrarFormulario = true;
-  window.scrollTo({ top: 0, behavior: 'smooth' }); // 🔥 PRO
-  }
+    this.titulo = noticia.titulo;
+  
+    setTimeout(() => {
+      this.contenido = noticia.contenido;
+    });
+  
+    this.idEditando = noticia.id;
+    this.editando = true;
+    this.mostrarFormulario = true;
+  
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  } // 🔥 PRO
 
   puedeGestionar(): boolean {
   return this.authService.puedeGestionarNoticias();
