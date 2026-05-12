@@ -36,17 +36,8 @@
         <input type="text" [(ngModel)]="titulo" placeholder="Título">
 
         <quill-editor
-          [ngModel]="contenido"
-          (ngModelChange)="contenido = $event"
-          [formats]="['bold', 'italic', 'underline', 'list', 'bullet', 'link']"
-          [modules]="{
-            toolbar: [
-              ['bold', 'italic', 'underline'],
-              [{ list: 'ordered' }, { list: 'bullet' }],
-              ['link']
-            ]
-          }"
-          name="contenido">
+          [(ngModel)]="contenido"
+          theme="snow">
         </quill-editor>
 
       </div>

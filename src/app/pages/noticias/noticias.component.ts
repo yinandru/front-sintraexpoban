@@ -80,10 +80,15 @@ export class NoticiasComponent implements OnInit {
   }
 
     resumen(html: string): string {
-    const textoPlano = html.replace(/<[^>]+>/g, ''); // quitar HTML
-    return textoPlano.length > 80 
-    ? textoPlano.substring(0, 80) + '...' 
-    : textoPlano;
+
+  const textoPlano = html
+    .replace(/<[^>]+>/g, '')   // quitar etiquetas HTML
+    .replace(/&nbsp;/g, ' ')   // convertir &nbsp; en espacios normales
+    .trim();
+
+    return textoPlano.length > 80
+      ? textoPlano.substring(0, 80) + '...'
+      : textoPlano;
     }
 
     get noticiasPaginadas() {

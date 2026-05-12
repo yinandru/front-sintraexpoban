@@ -177,32 +177,51 @@
   margin-bottom: 10px;
 }
 
+/* 🔥 EVITAR DESBORDE HORIZONTAL */
+.contenido-blog {
+  width: 100%;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 🔥 TODO elemento dentro del contenido */
+.contenido-blog * {
+  max-width: 100% !important;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+/* 🔥 PÁRRAFOS */
+.contenido-blog p {
+  white-space: normal !important;
+}
+
+/* 🔥 PRE Y CODE */
+.contenido-blog pre,
+.contenido-blog code {
+  white-space: pre-wrap !important;
+  overflow-x: auto;
+}
+
+/* 🔥 IMÁGENES */
+.contenido-blog img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
 /* =========================
    IMÁGENES DEL TEXTO
 ========================= */
 
 .contenido-blog img {
   display: block !important;
-
-  width: 280px !important;
-  height: 200px !important;
-
-  min-width: 280px !important;
-  max-width: 280px !important;
-
-  min-height: 200px !important;
-  max-height: 200px !important;
-
+  max-width: 100% !important;
+  height: auto !important;
   object-fit: cover !important;
-  object-position: center center !important;
-
   margin: 25px auto !important;
-  padding: 0 !important;
-
   border-radius: 14px !important;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08) !important;
-
-  background: #fff !important;
 }
 
 /* FORZAR estilos inline de Quill */
