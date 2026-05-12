@@ -35,8 +35,9 @@
         
         <input type="text" [(ngModel)]="titulo" placeholder="Título">
 
-        <quill-editor 
-          [(ngModel)]="contenido"
+        <quill-editor
+          [ngModel]="contenido"
+          (ngModelChange)="contenido = $event"
           [formats]="['bold', 'italic', 'underline', 'list', 'bullet', 'link']"
           [modules]="{
             toolbar: [

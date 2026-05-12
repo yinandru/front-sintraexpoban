@@ -120,65 +120,65 @@ export class NoticiasComponent implements OnInit {
   }
 
   guardarNoticia() {
-  console.log('ENTRÓ AL MÉTODO');
 
-  const contenidoLimpio = this.contenido
-    ?.replace(/<(.|\n)*?>/g, '')
-    ?.trim();
-
-  if (!this.titulo.trim() || !contenidoLimpio) {
-    alert('Todos los campos son obligatorios');
-    return;
-}
-
-  if (this.editando && this.idEditando !== null) {
-
+    console.log('TITULO 👉', this.titulo);
+    console.log('CONTENIDO 👉', this.contenido);
+  
+    const contenidoLimpio = this.contenido
+      ?.replace(/<(.|\n)*?>/g, '')
+      ?.trim();
+  
+    if (!this.titulo.trim() || !contenidoLimpio) {
+      alert('Todos los campos son obligatorios');
+      return;
+    }
+  
     const formData = new FormData();
+  
     formData.append('titulo', this.titulo);
     formData.append('contenido', this.contenido);
-
+  
     if (this.imagen) {
       formData.append('imagen', this.imagen);
     }
-
-    this.noticiasService.editarNoticia(this.idEditando, formData)
-      .subscribe({
-        next: () => {
-          alert('Noticia actualizada');
-          this.resetForm();
-          this.cargarNoticias();
-        },
-        error: (err) => {
-          console.error('ERROR BACKEND 👉', err);
-          alert('Error al actualizar');
-        }
-      });
-
-  } else {
-
-    const formData = new FormData();
-    formData.append('titulo', this.titulo);
-    formData.append('contenido', this.contenido);
-
-    if (this.imagen) {
-      formData.append('imagen', this.imagen);
-    }
-
-    this.noticiasService.crearNoticia(formData)
-      .subscribe({
-        next: () => {
-          alert('Noticia creada');
-          this.resetForm();
-          this.cargarNoticias();
-        },
-        error: (err) => {
-          console.error('ERROR BACKEND 👉', err);
-          alert('Error al crear noticia');
-        }
-      });
+  
+    // 🔥 EDITAR
+    if (this.editando && this.idEditando !== null) {
+  
+      this.noticiasService.editarNoticia(this.idEditando, formData)
+        .subscribe({
+          next: () => {
+            alert('Noticia actualizada');
+            this.resetForm();
+            this.cargarNoticias();
+          },
+          error: (err) => {
+            console.error('ERROR BACKEND 👉', err);
+            alert('Error al actualizar');
+          }
+        });
+  
+      }
+  
+    // 🔥 CREAR
+    else {
+  
+      this.noticiasService.crearNoticia(formData)
+        .subscribe({
+          next: () => {
+            alert('Noticia creada');
+            this.resetForm();
+            this.cargarNoticias();
+          },
+          error: (err) => {
+            console.error('ERROR BACKEND 👉', err);
+            alert('Error al crear noticia');
+          }
+        });
+  
+      }
+  
   }
-
-} 
   resetForm() {
     // throw new Error('Method not implemented.');
     this.titulo = '';
@@ -187,7 +187,7 @@ export class NoticiasComponent implements OnInit {
     this.editando = false;
     this.idEditando = null;
     this.mostrarFormulario = false;
-  }
+    }
 
     eliminar(id: number) {
     if (confirm('¿Eliminar esta noticia?')) {
@@ -195,7 +195,7 @@ export class NoticiasComponent implements OnInit {
       .subscribe(() => {
         this.noticias = this.noticias.filter(n => n.id !== id);
       });
-  }
+    }
   }
 
   editar(noticia: any) {
