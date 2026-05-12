@@ -94,7 +94,7 @@
 @media (max-width: 768px) {
 
   .hero {
-    height: 70vh;
+    height: 45vh;
     padding: 20px;
     background-position: center;
   }
@@ -133,7 +133,7 @@
 ========================= */
 
 .historia-home {
-  padding: 80px 40px;
+  padding: 70px 40px;
   background: #f8fbf9;
 }
 

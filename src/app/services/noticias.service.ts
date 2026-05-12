@@ -6,18 +6,18 @@ import { Injectable } from '@angular/core';
 })
 export class NoticiasService {
 
-  private apiUrl = 'http://localhost:3000/noticias';
+  private apiUrl = 'https://backend-sintraexpoban.onrender.com/noticias';
 
   constructor(private http: HttpClient) {}
 
   obtenerNoticias() {
-    return this.http.get<any[]>('http://localhost:3000/noticias');
+    return this.http.get<any[]>('https://backend-sintraexpoban.onrender.com/noticias');
   }
 
   crearNoticia(data: any) {
     const token = localStorage.getItem('token');
   
-    return this.http.post('http://localhost:3000/noticias', data, {
+    return this.http.post('https://backend-sintraexpoban.onrender.com/noticias', data, {
       headers: token ? {
         Authorization: `Bearer ${token}`
       } : {}
@@ -27,7 +27,7 @@ export class NoticiasService {
   eliminarNoticia(id: number) {
     const token = localStorage.getItem('token');
 
-    return this.http.delete(`http://localhost:3000/noticias/${id}`, {
+    return this.http.delete(`https://backend-sintraexpoban.onrender.com/noticias/${id}`, {
       headers: token ? {
         Authorization: `Bearer ${token}`
       } : {}
@@ -37,7 +37,7 @@ export class NoticiasService {
   editarNoticia(id: number, data: any) {
     const token = localStorage.getItem('token');
 
-    return this.http.put(`http://localhost:3000/noticias/${id}`, data, {
+    return this.http.put(`https://backend-sintraexpoban.onrender.com/noticias/${id}`, data, {
       headers: token ? {
         Authorization: `Bearer ${token}`
       } : {}

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class DirectivosService {
 
-  private url = 'http://localhost:3000/directivos';
+  private url = 'https://backend-sintraexpoban.onrender.com/directivos';
 
   constructor(private http: HttpClient) {}
 
@@ -13,14 +13,41 @@ export class DirectivosService {
   }
 
   crear(data: FormData) {
-    return this.http.post(this.url, data);
+
+    const token = localStorage.getItem('token');
+
+    return this.http.post(this.url, data, {
+      headers: token
+        ? {
+            Authorization: `Bearer ${token}`,
+          }
+        : {},
+    });
   }
 
   actualizar(id: number, data: FormData) {
-    return this.http.put(`${this.url}/${id}`, data);
+
+    const token = localStorage.getItem('token');
+
+    return this.http.put(`${this.url}/${id}`, data, {
+      headers: token
+        ? {
+            Authorization: `Bearer ${token}`,
+          }
+        : {},
+    });
   }
 
   eliminar(id: number) {
-    return this.http.delete(`${this.url}/${id}`);
+
+    const token = localStorage.getItem('token');
+
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: token
+        ? {
+            Authorization: `Bearer ${token}`,
+          }
+        : {},
+    });
   }
 }

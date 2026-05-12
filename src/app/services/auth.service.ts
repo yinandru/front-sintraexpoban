@@ -10,7 +10,7 @@ export class AuthService {
     throw new Error('Method not implemented.');
   }
 
-  private API = 'http://localhost:3000/auth';
+  private API = 'https://backend-sintraexpoban.onrender.com/auth';
 
   constructor(private http: HttpClient) {}
 
@@ -32,10 +32,6 @@ export class AuthService {
   getToken() {
     return localStorage.getItem('token');
   }
-
-  /* estaLogueado(): boolean {
-    return !!this.getToken();
-  } */
 
   // 🔥 VERIFICAR ADMIN
   esAdmin(): boolean {
