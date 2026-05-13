@@ -91,12 +91,21 @@
   }
 }
 
-@media (max-width: 768px) {
-
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  /* tablets: mantener portada completa */
   .hero {
-    height: 45vh;
-    padding: 20px;
-    background-position: center;
+    min-height: 100vh;
+    background-position: center top;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;       /* ya no fuerza toda la pantalla */
+    height: auto;           /* se adapta al contenido */
+    padding: 40px 20px;     /* espacio interno */
+    background-position: center top;
   }
 
   .overlay {
@@ -105,6 +114,7 @@
     border-radius: 14px;
     width: 90%;
     max-width: 350px;
+    margin: 0 auto;         /* centrado horizontal */
   }
 
   .overlay h1 {
@@ -125,8 +135,9 @@
     font-size: 15px;
     border-radius: 10px;
   }
-
 }
+
+
 
 /* =========================
    HISTORIA HOME
@@ -362,6 +373,11 @@
   font-size: 16px;
   line-height: 1.9;
   color: #333;
+
+  max-width: 700px;   /* límite de ancho del texto */
+  margin-left: auto;  /* centra horizontalmente */
+  margin-right: auto; /* centra horizontalmente */
+  word-wrap: break-word; /* evita que palabras largas rompan el diseño */
 }
 
 /* BOTÓN */

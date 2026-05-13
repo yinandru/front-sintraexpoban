@@ -27,6 +27,10 @@
 
   .contenido-modal {
     font-size: 15px;
+    /* NUEVO: limitar ancho en móviles */
+    max-width: 90%;      /* ocupa el 90% del ancho de pantalla */
+    margin-left: auto;   /* centrado */
+    margin-right: auto;  /* centrado */
   }
 
   .modal-content button {
