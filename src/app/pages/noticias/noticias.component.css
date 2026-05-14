@@ -92,8 +92,10 @@
   margin-top: 30px;
 }
 
+/* CONTENEDOR DE LA CARD */
 .card {
   display: flex;
+  flex-direction: row; /* fuerza disposición horizontal */
   align-items: center;
   gap: 24px;
   background: hwb(0 91% 9%);
@@ -101,11 +103,31 @@
   padding: 28px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   transition: 0.3s;
-
-  min-height: 220px;
-  /* max-height: 320px; */
+  min-height: 260px;
   overflow: hidden;
 }
+
+/* IMAGEN A LA IZQUIERDA */
+.img-box {
+  flex-shrink: 0; /* evita que se deforme */
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  padding: 6px;
+  background: #e8b923;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* TEXTO A LA DERECHA */
+.info {
+  flex: 1; /* ocupa el resto del espacio */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 
 .card:hover {
   transform: translateY(-6px);
