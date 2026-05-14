@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NoticiasService } from '../../services/noticias.service';
 import { RouterModule } from '@angular/router';
@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { AuthService } from '../../services/auth.service';
+import { SweetAlertService } from '../../services/sweet-alert.service';
 
 // import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
@@ -18,19 +19,16 @@ import { AuthService } from '../../services/auth.service';
 })
 
 export class NoticiasComponent implements OnInit {
+isLoadingButton() {
+throw new Error('Method not implemented.');
+}
+  private readonly authService = inject(AuthService);
+  private readonly noticiasService = inject(NoticiasService);
+  private readonly sanitizer = inject(DomSanitizer);
+  private readonly sweetAlertService = inject(SweetAlertService);
 
   paginaActual: number = 1;
   noticiasPorPagina: number = 8;
-
-  /* modules = {
-    toolbar: [
-      ['bold', 'italic', 'underline'],
-      [{ header: [1, 2, 3, false] }],
-      [{ list: 'ordered' }, { list: 'bullet' }],
-      ['link', 'image'],
-      ['clean']
-    ]
-  }; */
 
   // public Editor = ClassicEditor;
   noticias: any[] = [];
@@ -45,12 +43,6 @@ export class NoticiasComponent implements OnInit {
   contenido = '';
   imagen: File | null = null;
   noticia: any;
-
-  constructor(
-    private authService: AuthService,
-    private noticiasService: NoticiasService,
-    private sanitizer: DomSanitizer
-  ) {}
 
   sanitizar(html: string): SafeHtml {
   return this.sanitizer.bypassSecurityTrustHtml(html);
@@ -153,13 +145,13 @@ export class NoticiasComponent implements OnInit {
       this.noticiasService.editarNoticia(this.idEditando, formData)
         .subscribe({
           next: () => {
-            alert('Noticia actualizada');
+            this.sweetAlertService.success('Noticia', '¡Noticia actualizada exitosamente!')
             this.resetForm();
             this.cargarNoticias();
           },
           error: (err) => {
             console.error('ERROR BACKEND 👉', err);
-            alert('Error al actualizar');
+            this.sweetAlertService.error('Noticia', '¡Error al actualizar la noticia!')
           }
         });
   
@@ -171,13 +163,13 @@ export class NoticiasComponent implements OnInit {
       this.noticiasService.crearNoticia(formData)
         .subscribe({
           next: () => {
-            alert('Noticia creada');
+            this.sweetAlertService.success('Noticia', '¡Noticia creada exitosamente!')
             this.resetForm();
             this.cargarNoticias();
           },
           error: (err) => {
             console.error('ERROR BACKEND 👉', err);
-            alert('Error al crear noticia');
+            this.sweetAlertService.error('Noticia', '¡Error al crear la noticia!')
           }
         });
   
@@ -192,15 +184,18 @@ export class NoticiasComponent implements OnInit {
     this.editando = false;
     this.idEditando = null;
     this.mostrarFormulario = false;
-    }
+  }
 
-    eliminar(id: number) {
-    if (confirm('¿Eliminar esta noticia?')) {
-    this.noticiasService.eliminarNoticia(id)
-      .subscribe(() => {
-        this.noticias = this.noticias.filter(n => n.id !== id);
+  eliminar(id: number) {
+    this.sweetAlertService.confirm('¿Eliminar noticia?', '¿Estás seguro que deseas eliminar esta noticia?')
+      .then((result) => {
+        if (result.isConfirmed) {
+          this.noticiasService.eliminarNoticia(id)
+          .subscribe(() => {
+            this.noticias = this.noticias.filter(n => n.id !== id);
+          });
+        }
       });
-    }
   }
 
   editar(noticia: any) {

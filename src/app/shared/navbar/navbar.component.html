@@ -1,50 +1,56 @@
 <nav class="navbar">
 
   <!-- IZQUIERDA → LOGO -->
-  <div class="nav-left">
-    <img
-      src="assets/images/logoo.png"
-      alt="Logo Sintraexpoban"
-      class="logo-img"
-    >
-    <div class="logo-text">SINTRAEXPOBAN</div>
-  </div>
+  <div class="menu">
+    <div class="nav-left">
+      <a (click)="irA('/')">
+        <img
+          src="assets/images/logoo.png"
+          alt="Logo Sintraexpoban"
+          class="logo-img"
+        >
+        </a>
+      <div class="logo-text">SINTRAEXPOBAN</div>
+    </div>
 
-  <!-- HAMBURGUESA -->
-  <div class="menu-icon" (click)="toggleMenu()">
-    ☰
-  </div>
+    <!-- HAMBURGUESA -->
+    <div class="menu-icon" (click)="toggleMenu()">
+      ☰
+    </div>
 
   <!-- CENTRO → MENÚ -->
-  <ul [class.active]="menuAbierto">
+    <ul [class.active]="menuAbierto">
 
-    <li><a (click)="irA('/')">Inicio</a></li>
-    <li><a (click)="irA('/sobre-nosotros')">Sobre Nosotros</a></li>
-    <li><a (click)="irA('/noticias')">Noticias</a></li>
-    <li><a (click)="irA('/afiliaciones')">Afiliaciones</a></li>
-    <li><a (click)="irA('/contacto')">Contacto</a></li>
+      <li><a (click)="irA('/')">Inicio</a></li>
+      <li><a (click)="irA('/sobre-nosotros')">Sobre Nosotros</a></li>
+      <li><a (click)="irA('/noticias')">Noticias</a></li>
+      <li><a (click)="irA('/afiliaciones')">Afiliaciones</a></li>
+      <li><a (click)="irA('/contacto')">Contacto</a></li>
+      @if(!estaLogueado()) {
+        <li><a (click)="irA('/login')">Iniciar Sesión</a></li>
+      }
+      <!-- PANEL ADMIN -->
+    <!--  <button
+        *ngIf="puedeGestionarNoticias()"
+        routerLink="/admin">
+        Panel de Gestión
+      </button> -->
+      <li *ngIf="puedeGestionarNoticias()">
+        <a (click)="irA('/admin')">Panel de Gestion</a>
+      </li>
 
-    <!-- PANEL ADMIN -->
-   <!--  <button
-      *ngIf="puedeGestionarNoticias()"
-      routerLink="/admin">
-      Panel de Gestión
-    </button> -->
-    <li *ngIf="puedeGestionarNoticias()">
-      <a (click)="irA('/admin')">Panel de Gestion</a>
-    </li>
+      <!-- USUARIO -->
+      <li *ngIf="estaLogueado()">
+        <span>👤 {{ getNombre() }}</span>
+      </li>
 
-    <!-- USUARIO -->
-    <li *ngIf="estaLogueado()">
-      <span>👤 {{ getNombre() }}</span>
-    </li>
+      <!-- CERRAR SESIÓN -->
+      <li *ngIf="estaLogueado()">
+        <a (click)="logout()">Cerrar sesión</a>
+      </li>
 
-    <!-- CERRAR SESIÓN -->
-    <li *ngIf="estaLogueado()">
-      <a (click)="logout()">Cerrar sesión</a>
-    </li>
-
-  </ul>
+    </ul>
+  </div>
 
   <!-- DERECHA → ADMIN -->
   <!-- <div class="nav-right">

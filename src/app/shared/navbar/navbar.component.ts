@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service'; // 👈 IMPORTANTE
 import { Router } from '@angular/router';
+import { SweetAlertService } from '../../services/sweet-alert.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,14 +14,14 @@ import { Router } from '@angular/router';
 })
 
 export class NavbarComponent {
-puedeGestionarNoticias(): boolean {
-  return this.authService.puedeGestionarNoticias();
-}
+  private readonly authService = inject(AuthService);
+  private readonly router = inject(Router);
+  private readonly sweetAlertService = inject(SweetAlertService);
 
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) {} // 👈 INYECTAR
+
+  puedeGestionarNoticias(): boolean {
+    return this.authService.puedeGestionarNoticias();
+  }
 
   irA(ruta: string) {
     this.router.navigate([ruta]).then(() => {
@@ -57,7 +58,12 @@ puedeGestionarNoticias(): boolean {
   }
 
   logout() {
-    this.authService.logout();
-    location.reload();
+    this.sweetAlertService.confirm('¿Cerrar sesión?', '¿Estás seguro que deseas cerrar la sesión?')
+      .then((result) => {
+        if (result.isConfirmed) {
+          this.authService.logout();
+          location.reload();
+        }
+      });
   }
 }
