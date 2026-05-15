@@ -81,9 +81,11 @@ export class JuntaDirectivaComponent implements OnInit {
             this.sweetAlertService.success('Directivo', '✏️ Directivo actualizado correctamente');
             this.cargar();
             this.cerrarModal();
+            this.isLoading = false; // 👈 apaga spinner
           },
           error: () => {
             this.sweetAlertService.error('Directivo', '❌ Error al actualizar el directivo');
+            this.isLoading = false; // 👈 apaga spinner
           }
         });
 
@@ -95,9 +97,11 @@ export class JuntaDirectivaComponent implements OnInit {
             this.sweetAlertService.success('Directivo', '✅ Directivo creado correctamente');
             this.cargar();
             this.cerrarModal();
+            this.isLoading = false; // 👈 apaga spinner
           },
           error: () => {
             this.sweetAlertService.error('Directivo', '❌ Error al crear el directivo');
+            this.isLoading = false; // 👈 apaga spinner
           }
         });
     }
