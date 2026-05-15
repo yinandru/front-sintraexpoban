@@ -47,37 +47,3 @@ export class LoginComponent {
     });
     }
   }
-
-/* import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-
-@Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './login.component.html'
-})
-export class LoginComponent {
-
-  email = '';
-  password = '';
-
-  constructor(private http: HttpClient, private router: Router) {}
-
-  login() {
-  this.http.post<any>('http://localhost:3000/auth/login', {
-    email: this.email,
-    password: this.password
-  }).subscribe((res) => {
-
-    console.log('TOKEN 👉', res); // 👈 AGREGA ESTO
-
-    localStorage.setItem('token', res.access_token);
-
-    this.router.navigate(['/noticias']);
-  });
-}
-} */
