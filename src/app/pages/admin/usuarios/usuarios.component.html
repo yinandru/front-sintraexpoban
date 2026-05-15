@@ -12,7 +12,11 @@
       <option value="admin">Administrador</option>
     </select>
 
-    <button (click)="crearUsuario()">Crear Usuario</button>
+    <!-- <button (click)="crearUsuario()">Crear Usuario</button> -->
+    <button (click)="crearUsuario()" [disabled]="isLoading">
+          <span *ngIf="!isLoading">💾 Guardar</span>
+          <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        </button>
 
   </div> <br><br> 
 
@@ -32,7 +36,10 @@
       <td>{{ u.role }}</td>
       <td>
         <!-- <button (click)="editar(u)">Editar</button> -->
-        <button (click)="eliminar(u.id)">Eliminar</button>
+        <button (click)="eliminar(u.id)" [disabled]="isLoading">
+          <span *ngIf="!isLoading">🗑️ Eliminar</span>
+          <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        </button>
       </td>
     </tr>
   </table>
