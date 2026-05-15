@@ -60,7 +60,11 @@ export class JuntaDirectivaComponent implements OnInit {
     this.mostrarModal = false;
   }
 
+  public isLoading: boolean = false; // 👈 nueva propiedad
+
   guardar() {
+    this.isLoading = true; // activar spinner
+    
     const formData = new FormData();
     formData.append('nombre', this.form.nombre);
     formData.append('cargo', this.form.cargo);

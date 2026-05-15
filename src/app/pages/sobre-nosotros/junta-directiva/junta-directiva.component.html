@@ -46,7 +46,10 @@
       <input type="file" (change)="seleccionarImagen($event)" />
 
       <div class="acciones">
-        <button (click)="guardar()">💾 Guardar</button>
+        <button (click)="guardar()" [disabled]="isLoading">
+          <span *ngIf="!isLoading">💾 Guardar</span>
+          <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        </button>
         <button (click)="cerrarModal()">❌ Cancelar</button>
       </div>
 

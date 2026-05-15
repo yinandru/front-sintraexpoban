@@ -116,7 +116,10 @@ throw new Error('Method not implemented.');
     this.imagen = event.target.files[0];
   }
 
+  public isLoading: boolean = false; // 👈 nueva propiedad
+
   guardarNoticia() {
+    this.isLoading = true; // activar spinner
 
     console.log('TITULO 👉', this.titulo);
     console.log('CONTENIDO 👉', this.contenido);
@@ -184,6 +187,7 @@ throw new Error('Method not implemented.');
     this.editando = false;
     this.idEditando = null;
     this.mostrarFormulario = false;
+    this.isLoading = false; // desactivar spinner
   }
 
   eliminar(id: number) {
