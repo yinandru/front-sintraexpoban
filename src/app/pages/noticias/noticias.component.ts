@@ -130,6 +130,7 @@ throw new Error('Method not implemented.');
   
     if (!this.titulo.trim() || !contenidoLimpio) {
       alert('Todos los campos son obligatorios');
+      this.isLoading = false; // 👈 apaga spinner
       return;
     }
   
@@ -151,10 +152,12 @@ throw new Error('Method not implemented.');
             this.sweetAlertService.success('Noticia', '¡Noticia actualizada exitosamente!')
             this.resetForm();
             this.cargarNoticias();
+            this.isLoading = false; // 👈 apaga spinner
           },
           error: (err) => {
             console.error('ERROR BACKEND 👉', err);
             this.sweetAlertService.error('Noticia', '¡Error al actualizar la noticia!')
+            this.isLoading = false; // 👈 apaga spinner
           }
         });
   
@@ -169,10 +172,12 @@ throw new Error('Method not implemented.');
             this.sweetAlertService.success('Noticia', '¡Noticia creada exitosamente!')
             this.resetForm();
             this.cargarNoticias();
+            this.isLoading = false; // 👈 apaga spinner
           },
           error: (err) => {
             console.error('ERROR BACKEND 👉', err);
             this.sweetAlertService.error('Noticia', '¡Error al crear la noticia!')
+            this.isLoading = false; // 👈 apaga spinner
           }
         });
   

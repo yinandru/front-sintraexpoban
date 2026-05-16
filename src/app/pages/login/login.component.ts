@@ -34,6 +34,7 @@ export class LoginComponent {
       // ❌ SI HAY ERROR
       if (!res.access_token) {
         this.sweetAlertService.error('Error al iniciar sesión', res.message);
+        this.isLoadingButton.set(false);
         return;
       }
       
